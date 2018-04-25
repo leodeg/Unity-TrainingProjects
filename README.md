@@ -1,3 +1,4 @@
 # Unity3D projects for learning #
 
-### [Text Adventure](Text%20Adventure/) ### 
+#### [Text Adventure](Text%20Adventure/)
+#### [Number Wizard UI](NumberWizardUI/)
