@@ -7,11 +7,13 @@ public class LevelManager : MonoBehaviour {
     public void LoadLevel(string name)
     {
         Debug.Log("Level load requested for: " + name);
+        Application.LoadLevel(name);
     }
 
     public void QuitRequest()
     {
-        Debug.Log("Game over!!! GoodBye!");
+        Debug.Log("Want to Quit!!!");
+        Application.Quit();  
     }
 
 }
