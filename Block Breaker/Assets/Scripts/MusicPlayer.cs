@@ -6,7 +6,8 @@ public class MusicPlayer : MonoBehaviour {
 
     static MusicPlayer instance = null;
 
-    void Start () {
+    void Awake()
+    {
         if (instance != null)
         {
             Destroy(gameObject);
@@ -18,9 +19,15 @@ public class MusicPlayer : MonoBehaviour {
             GameObject.DontDestroyOnLoad(gameObject);
         }
     }
+
+    void Start ()
+    {
+        
+    }
     
 
-    void Update () {
+    void Update ()
+    {
         
     }
 }
