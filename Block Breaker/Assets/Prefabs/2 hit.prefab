@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114187031092181250}
   m_Layer: 0
   m_Name: 2 hit
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5efcc680993456498603c5c63b6963b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHits: 2
+  hitSprites:
+  - {fileID: 21300008, guid: 487a594078ea5804892a20a5b291b2e6, type: 3}
+  - {fileID: 21300006, guid: 487a594078ea5804892a20a5b291b2e6, type: 3}
 --- !u!212 &212721832986159746
 SpriteRenderer:
   m_ObjectHideFlags: 1
