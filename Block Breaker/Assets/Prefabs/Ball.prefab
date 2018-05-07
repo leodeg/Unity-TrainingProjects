@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609634538456974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0.9, z: 0}
+  m_LocalPosition: {x: 7, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,8 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743aa14d2a481d946bb753537ef7898d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidBody2D: {fileID: 0}
-  paddle: {fileID: 114438536287972532, guid: b85f16b9a196c6c44ab1f56f2434841c, type: 2}
 --- !u!212 &212338846131276894
 SpriteRenderer:
   m_ObjectHideFlags: 1
