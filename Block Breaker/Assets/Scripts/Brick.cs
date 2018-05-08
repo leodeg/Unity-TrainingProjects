@@ -36,7 +36,9 @@ public class Brick : MonoBehaviour
     {
         AudioSource.PlayClipAtPoint(crack, transform.position);
         if (isBreakable)
+        {
             HandleHits();
+        }
     }
 
     void HandleHits()
