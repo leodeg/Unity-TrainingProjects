@@ -7,6 +7,7 @@ public class Brick : MonoBehaviour
     public AudioClip crack;
     public Sprite[] hitSprites;
     public static int breakableCount = 0;
+    public GameObject smoke;
 
     private bool isBreakable; 
     private int timesHit;
@@ -34,7 +35,7 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        AudioSource.PlayClipAtPoint(crack, transform.position);
+        AudioSource.PlayClipAtPoint(crack, transform.position, 0.7f);
         if (isBreakable)
         {
             HandleHits();
@@ -49,6 +50,7 @@ public class Brick : MonoBehaviour
         {
             breakableCount--;
             levelManager.BrickDestroyed();
+            GameObject smokePuff = Instantiate(smoke, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
         else
@@ -58,7 +60,13 @@ public class Brick : MonoBehaviour
     void LoadSprites()
     {
         int spriteIndex = timesHit - 1;
-        if (hitSprites[spriteIndex])
+        if (hitSprites[spriteIndex] != null)
+        {
             this.GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+        else
+        {
+            Debug.LogError("Brick sprite missing...");
+        }
     }
 }
