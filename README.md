@@ -1,4 +1,5 @@
 # Unity3D training projects
-+ [Text Adventure](Text%20Adventure/)
-+ [Number Wizard UI](NumberWizardUI/)
-+ [Block Breaker](Block%20Breaker/)
+- [x] [Text Adventure](Text%20Adventure/)
+- [x] [Number Wizard UI](NumberWizardUI/)
+- [x] [Block Breaker](Block%20Breaker/)
+- [ ] [Laser Defender](Laser%20Defender/)
