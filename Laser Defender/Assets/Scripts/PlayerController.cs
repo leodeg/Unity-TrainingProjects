@@ -3,14 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
-    private float speed;
+{    
+    private float speed = 15.0f;
+    private float xMin;
+    private float xMax;
+    private float padding = 1f;
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
 	{
-        speed = 15.0f;
-	}
+        float distance = this.transform.position.z - Camera.main.transform.position.z;
+        Vector3 leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        Vector3 rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
+
+        xMin = leftmost.x + padding;
+        xMax = rightmost.x - padding;
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -19,19 +28,30 @@ public class PlayerController : MonoBehaviour
         //MoveWithMouse();
     }
 
-    void MoveTheShip()
+    private void MoveTheShip()
 	{
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.position += new Vector3(+speed * Time.deltaTime, 0, 0);
+            // this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+
+            // Second method for move of player ship
+            this.transform.position += Vector3.right * speed * Time.deltaTime;
             Debug.Log("RightArrow key was pressed.");
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            this.transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+
+            // this.transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
+
+            // Second method for move of player ship
+            this.transform.position += Vector3.left * speed * Time.deltaTime;
             Debug.Log("LeftArrow key was pressed.");
         }
+
+        // Restrict the player to the Gamespace
+        float newX = Mathf.Clamp(this.transform.position.x, xMin, xMax);
+        this.transform.position = new Vector3(newX, transform.position.y, transform.position.z);
 
     }
 
