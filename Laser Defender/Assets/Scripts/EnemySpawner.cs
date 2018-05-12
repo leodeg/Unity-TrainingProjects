@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     private float speed = 3f;
     private float xMax;
     private float xMin;
-    private float padding = 1f;
+    private float padding = 0.5f;
     private int direction = 1;
     private float boundaryRightEdge, boundaryLeftEdge;
 

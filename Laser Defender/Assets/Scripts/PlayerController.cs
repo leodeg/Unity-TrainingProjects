@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{    
-    private float speed = 15.0f;
+{
+    public GameObject projectile;
+    public float speed = 15.0f;    
+    public float projectileSpeed = 10;
+    public float repeatRating = 0.2f;
+    public float padding = 1f;
+
     private float xMin;
     private float xMax;
-    private float padding = 1f;
+    
 
 
     // Use this for initialization
     void Start ()
 	{
-        float distance = this.transform.position.z - Camera.main.transform.position.z;
-        Vector3 leftmost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
-        Vector3 rightmost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
+        Camera camera = Camera.main;
+        float distance = this.transform.position.z - camera.transform.position.z;
+        Vector3 leftmost = camera.ViewportToWorldPoint(new Vector3(0, 0, distance));
+        Vector3 rightmost = camera.ViewportToWorldPoint(new Vector3(1, 0, distance));
 
         xMin = leftmost.x + padding;
         xMax = rightmost.x - padding;
@@ -25,9 +31,27 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{
         MoveTheShip();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            InvokeRepeating("Fire", 0.000001f, repeatRating);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            CancelInvoke("Fire");
+        }
+
         //MoveWithMouse();
     }
 
+    // Weapons shoot (for player)
+    private void Fire()
+    {        
+        GameObject beam = Instantiate(projectile, this.transform.position, Quaternion.identity) as GameObject;
+        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);        
+    }
+
+    // Method of move for player by keyboard arrows
     private void MoveTheShip()
 	{
         if (Input.GetKey(KeyCode.RightArrow))
@@ -55,6 +79,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // Method of move for player by mouse
     private void MoveWithMouse()
     {
         // Get a position of the mouse from main camera
