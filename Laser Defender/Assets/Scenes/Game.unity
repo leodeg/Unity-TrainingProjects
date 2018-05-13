@@ -610,6 +610,7 @@ MonoBehaviour:
   width: 10
   height: 5
   movingRight: 1
+  spawnDelay: 1
 --- !u!4 &1912747831 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4937724730653810, guid: d0fe8193573b0774d930e1a9a18e9698,

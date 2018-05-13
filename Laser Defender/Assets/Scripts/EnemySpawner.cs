@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public float width = 10f;
     public float height = 5f;
     public bool movingRight = true;
+    public float spawnDelay = 0.5f;
 
     private float speed = 3f;
     private float xMax;
@@ -24,20 +25,10 @@ public class EnemySpawner : MonoBehaviour
         boundaryLeftEdge = camera.ViewportToWorldPoint(new Vector3(0, 0, distance)).x + padding;
         boundaryRightEdge = camera.ViewportToWorldPoint(new Vector3(1, 1, distance)).x - padding;
 
-        SpawnEnemy();
+        spawnDelay = 0.5f;
 
-    }    
+        SpawnUntilFull();
 
-    public void SpawnEnemy()
-    {
-        // Move the enemy to EnemyFormation/Position
-        foreach (Transform child in this.transform)
-        {
-            GameObject enemy = Instantiate(enemyPrefab,
-                new Vector3(child.transform.position.x, child.transform.position.y, 0),
-                Quaternion.identity) as GameObject;
-            enemy.transform.parent = child;
-        }
     }
 
     // Update is called once per frame
@@ -58,9 +49,47 @@ public class EnemySpawner : MonoBehaviour
         if (AllMemberDead())
         {
             Debug.Log("Empty Formation");
-            SpawnEnemy();
+            SpawnUntilFull();
 
         }
+    }
+
+    public void SpawnEnemies()
+    {
+        // Move the enemy to EnemyFormation/Position
+        foreach (Transform child in this.transform)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, child.transform.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = child;
+        }
+    }
+
+    void SpawnUntilFull()
+    {
+        Transform freePosition = NextFreePosotion();
+
+        if (freePosition)
+        {
+            GameObject enemy = Instantiate(enemyPrefab, freePosition.position, Quaternion.identity) as GameObject;
+            enemy.transform.parent = freePosition;
+        }
+
+        if (NextFreePosotion())
+        {
+            Invoke("SpawnUntilFull", spawnDelay);
+        }
+    }
+
+    Transform NextFreePosotion()
+    {
+        foreach (Transform childPositionGameObject in this.transform)
+        {
+            if (childPositionGameObject.childCount == 0)
+            {
+                return childPositionGameObject;
+            }
+        }
+        return null;
     }
 
     private bool AllMemberDead()
