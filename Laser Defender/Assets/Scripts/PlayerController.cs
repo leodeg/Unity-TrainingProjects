@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float projectileSpeed = 10;
     public float repeatRating = 0.2f;
     public float padding = 1f;
+    public float health = 250;
 
     private float xMin;
     private float xMax;
@@ -46,8 +47,9 @@ public class PlayerController : MonoBehaviour
 
     // Weapons shoot (for player)
     private void Fire()
-    {        
-        GameObject beam = Instantiate(projectile, this.transform.position, Quaternion.identity) as GameObject;
+    {
+        Vector3 startPosition = this.transform.position + new Vector3(0f, +1f, 0f);
+        GameObject beam = Instantiate(projectile, startPosition, Quaternion.identity) as GameObject;
         beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);        
     }
 
@@ -92,5 +94,21 @@ public class PlayerController : MonoBehaviour
         paddlePosition.x = Mathf.Clamp(mousePos.x, -8.0f, 8f);
 
         this.transform.position = paddlePosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("Player collider");
+        Projectile missile = collider.gameObject.GetComponent<Projectile>();
+
+        if (missile)
+        {
+            health -= missile.getDamage();
+            missile.Hit();
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
