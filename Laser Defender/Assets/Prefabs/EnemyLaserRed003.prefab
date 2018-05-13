@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50433489961323430}
   - component: {fileID: 70257547915852014}
   - component: {fileID: 114237869521360040}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyLaserRed003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
