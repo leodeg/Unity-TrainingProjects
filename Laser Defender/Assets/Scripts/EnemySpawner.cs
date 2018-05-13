@@ -24,15 +24,21 @@ public class EnemySpawner : MonoBehaviour
         boundaryLeftEdge = camera.ViewportToWorldPoint(new Vector3(0, 0, distance)).x + padding;
         boundaryRightEdge = camera.ViewportToWorldPoint(new Vector3(1, 1, distance)).x - padding;
 
+        SpawnEnemy();
+
+    }    
+
+    public void SpawnEnemy()
+    {
         // Move the enemy to EnemyFormation/Position
         foreach (Transform child in this.transform)
         {
-            GameObject enemy = Instantiate(enemyPrefab, 
-                new Vector3(child.transform.position.x, child.transform.position.y, 0), 
+            GameObject enemy = Instantiate(enemyPrefab,
+                new Vector3(child.transform.position.x, child.transform.position.y, 0),
                 Quaternion.identity) as GameObject;
             enemy.transform.parent = child;
         }
-	}    
+    }
 
     // Update is called once per frame
     void Update ()
@@ -49,6 +55,24 @@ public class EnemySpawner : MonoBehaviour
         }
         this.transform.position += new Vector3(direction * speed * Time.deltaTime, 0, 0);
 
+        if (AllMemberDead())
+        {
+            Debug.Log("Empty Formation");
+            SpawnEnemy();
+
+        }
+    }
+
+    private bool AllMemberDead()
+    {
+        foreach (Transform childPositionGameObject in this.transform)
+        {
+            if (childPositionGameObject.childCount > 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public void OnDrawGizmos()
