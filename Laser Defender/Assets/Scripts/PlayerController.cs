@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     public float projectileSpeed = 10;
     public float repeatRating = 0.2f;
     public float padding = 1f;
-    public float health = 250;
+    public float health = 100;
 
     private float xMin;
     private float xMax;
-    
+    private HealthKeeper healthKeeper;
 
 
     // Use this for initialization
@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
 
         xMin = leftmost.x + padding;
         xMax = rightmost.x - padding;
+
+        healthKeeper = GameObject.Find("Health").GetComponent<HealthKeeper>();
     }
 	
 	// Update is called once per frame
@@ -34,15 +36,16 @@ public class PlayerController : MonoBehaviour
 	{
         MoveTheShip();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Keypad5))
         {
             InvokeRepeating("Fire", 0.000001f, repeatRating);
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.Keypad5))
         {
             CancelInvoke("Fire");
         }
 
+        healthKeeper.Health(health);
         //MoveWithMouse();
     }
 
@@ -57,7 +60,7 @@ public class PlayerController : MonoBehaviour
     // Method of move for player by keyboard arrows
     private void MoveTheShip()
 	{
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Keypad6))
         {
             // this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
 
@@ -66,7 +69,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log("RightArrow key was pressed.");
         }
 
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.Keypad4))
         {
 
             // this.transform.position += new Vector3(-speed * Time.deltaTime, 0, 0);
@@ -109,6 +112,7 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(gameObject);
+                healthKeeper.ResetHealth();
             }
         }
     }
