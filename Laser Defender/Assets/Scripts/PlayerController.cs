@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float padding = 1f;
     public float health = 100;
 
+    public AudioClip fireSound;
+
     private float xMin;
     private float xMax;
     private HealthKeeper healthKeeper;
@@ -54,7 +56,9 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 startPosition = this.transform.position + new Vector3(0f, +1f, 0f);
         GameObject beam = Instantiate(projectile, startPosition, Quaternion.identity) as GameObject;
-        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);        
+        beam.GetComponent<Rigidbody2D>().velocity = new Vector3(0, projectileSpeed, 0);
+
+        AudioSource.PlayClipAtPoint(fireSound, transform.position);
     }
 
     // Method of move for player by keyboard arrows
