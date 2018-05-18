@@ -149,4 +149,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startClip: {fileID: 8300000, guid: 5e24dc9d874995344b98f66ab13db85a, type: 3}
   gameClip: {fileID: 8300000, guid: fd538343e41709646b4067b4493a5580, type: 3}
-  endClip: {fileID: 8300000, guid: f7759423df5cc0a4eb870846adb9e437, type: 3}
+  endClip: {fileID: 8300000, guid: 5e24dc9d874995344b98f66ab13db85a, type: 3}

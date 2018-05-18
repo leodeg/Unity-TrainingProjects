@@ -24,6 +24,9 @@ public class MusicPlayer : MonoBehaviour {
             instance = this;
             GameObject.DontDestroyOnLoad(gameObject);
             music = GetComponent<AudioSource>();
+            music.clip = startClip;
+            music.loop = true;
+            music.Play();
         }
     }
 
