@@ -23,7 +23,7 @@ public class MusicManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         AudioClip thisLevelMusic = levelMusicChangeArray[level];
-        Debug.Log("Playing clip: " + thisLevelMusic);
+        Debug.Log("Playing clip: " + thisLevelMusic); 
 
         if (thisLevelMusic)
         {
