@@ -18,7 +18,13 @@ public class MusicManager : MonoBehaviour
     void Start ()
     {
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = PlayerPrefsManager.GetMasterVolume();
 	}
+
+    void Update()
+    {
+        audioSource.volume = PlayerPrefsManager.GetMasterVolume();
+    }
 
     private void OnLevelWasLoaded(int level)
     {
@@ -31,5 +37,13 @@ public class MusicManager : MonoBehaviour
             audioSource.loop = true;
             audioSource.Play();
         }
+    }
+
+    /// <summary>
+    /// Set volume sound in game
+    /// </summary>
+    public void SetVolume(float volume)
+    {
+        audioSource.volume = volume;
     }
 }
