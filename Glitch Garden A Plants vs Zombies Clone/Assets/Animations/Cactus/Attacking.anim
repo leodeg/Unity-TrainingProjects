@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Cactus Attacking
+  m_Name: Attacking
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -166,16 +166,8 @@ AnimationClip:
       value: {fileID: 21300144, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
     - time: 2.4333334
       value: {fileID: 21300146, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - time: 2.4666667
-      value: {fileID: 21300148, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - time: 2.5
-      value: {fileID: 21300150, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - time: 2.5333333
-      value: {fileID: 21300152, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - time: 2.5666666
-      value: {fileID: 21300154, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
     attribute: m_Sprite
-    path: 
+    path: Body
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 30
@@ -186,7 +178,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 2073732236
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -267,16 +259,12 @@ AnimationClip:
     - {fileID: 21300142, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
     - {fileID: 21300144, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
     - {fileID: 21300146, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - {fileID: 21300148, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - {fileID: 21300150, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - {fileID: 21300152, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
-    - {fileID: 21300154, guid: 14512d42ec5724dd5ae7252566124195, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.6
+    m_StopTime: 2.4666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
