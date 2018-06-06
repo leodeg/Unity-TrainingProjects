@@ -9,12 +9,10 @@ public class OptionsController : MonoBehaviour
     public Slider diffSlider;
     public LevelManager levelManager;
 
-    private MusicManager musicManager;
-
 	// Use this for initialization
 	void Start ()
     {
-        musicManager = GameObject.FindObjectOfType<MusicManager>();
+        //MusicManager musicManager = GameObject.FindObjectOfType<MusicManager>();
         volumeSlider.value = PlayerPrefsManager.GetMasterVolume();
         diffSlider.value = PlayerPrefsManager.GetDifficulty();
 	}
