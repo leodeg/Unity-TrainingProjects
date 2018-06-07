@@ -147,8 +147,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 639636343f55d324fae5e3d3bebfa649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelMusciChangeArray:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: caef3048b7ee34690b330ed6629da3c4, type: 3}
-  - {fileID: 8300000, guid: caef3048b7ee34690b330ed6629da3c4, type: 3}
-  - {fileID: 0}
+  levelMusicChangeArray: []
