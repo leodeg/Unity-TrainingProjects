@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 61341136299059914}
   - component: {fileID: 114428287453808068}
   - component: {fileID: 114505613929642480}
+  - component: {fileID: 114025995511409844}
   m_Layer: 0
   m_Name: Cactus
   m_TagString: Untagged
@@ -46,6 +47,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1561451656630930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4270193022155500}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4076156011338128
 Transform:
   m_ObjectHideFlags: 1
@@ -59,6 +75,19 @@ Transform:
   m_Father: {fileID: 4821287762333262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4270193022155500
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1561451656630930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.347, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4821287762333262}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4821287762333262
 Transform:
   m_ObjectHideFlags: 1
@@ -70,6 +99,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076156011338128}
+  - {fileID: 4270193022155500}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -116,6 +146,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114025995511409844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1241296360979640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2702fa1e204725148a712c97d5c9f5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1368675674817132, guid: fcaaa6c2a9641304fab4496d67260eef, type: 2}
+  projectileParent: {fileID: 1810907543863286, guid: dae80bfa5e3f8b746a760d4bbde81789,
+    type: 2}
+  gun: {fileID: 1561451656630930}
 --- !u!114 &114428287453808068
 MonoBehaviour:
   m_ObjectHideFlags: 1

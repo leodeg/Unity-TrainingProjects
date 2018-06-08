@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1778920286498994}
   m_IsPrefabParent: 1
+--- !u!1 &1643087882626318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4363523600771184}
+  m_Layer: 0
+  m_Name: Gun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1778920286498994
 GameObject:
   m_ObjectHideFlags: 0
@@ -23,6 +38,7 @@ GameObject:
   - component: {fileID: 61232417513748694}
   - component: {fileID: 114085344185863222}
   - component: {fileID: 114057938009150586}
+  - component: {fileID: 114433012987237882}
   m_Layer: 0
   m_Name: Gnome
   m_TagString: Untagged
@@ -46,6 +62,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4363523600771184
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1643087882626318}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.221, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4421651994783418}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4421651994783418
 Transform:
   m_ObjectHideFlags: 1
@@ -57,6 +86,7 @@ Transform:
   m_LocalScale: {x: 0.9558579, y: 0.9558579, z: 0.9558579}
   m_Children:
   - {fileID: 4679822085227344}
+  - {fileID: 4363523600771184}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -139,6 +169,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd0b3ff9a870d4e4a8778b07c34f30a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114433012987237882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1778920286498994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2702fa1e204725148a712c97d5c9f5b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1318972484041390, guid: a899d57ae8508ec4d9e34bd196f4da51, type: 2}
+  projectileParent: {fileID: 1810907543863286, guid: dae80bfa5e3f8b746a760d4bbde81789,
+    type: 2}
+  gun: {fileID: 1643087882626318}
 --- !u!212 &212958589372627318
 SpriteRenderer:
   m_ObjectHideFlags: 1
