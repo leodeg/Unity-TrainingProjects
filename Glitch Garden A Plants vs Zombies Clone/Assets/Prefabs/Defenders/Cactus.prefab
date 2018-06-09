@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1561451656630930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.347, y: 0, z: 0}
+  m_LocalPosition: {x: 0.399, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4821287762333262}
@@ -157,8 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2702fa1e204725148a712c97d5c9f5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1368675674817132, guid: fcaaa6c2a9641304fab4496d67260eef, type: 2}
-  projectileParent: {fileID: 1810907543863286, guid: dae80bfa5e3f8b746a760d4bbde81789,
+  projectile: {fileID: 1714667639205746, guid: 54296ee93c34db743a3fbdbd9eb3ecc7, type: 2}
+  projectileParent: {fileID: 1890091640764584, guid: dae80bfa5e3f8b746a760d4bbde81789,
     type: 2}
   gun: {fileID: 1561451656630930}
 --- !u!114 &114428287453808068
