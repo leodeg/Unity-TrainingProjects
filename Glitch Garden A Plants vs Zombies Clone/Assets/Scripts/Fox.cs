@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof (Attackers))]
+[RequireComponent(typeof(Attackers))]
 public class Fox : MonoBehaviour
 {
     private Attackers attackers;

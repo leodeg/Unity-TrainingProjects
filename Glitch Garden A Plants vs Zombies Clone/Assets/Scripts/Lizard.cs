@@ -25,12 +25,15 @@ public class Lizard : MonoBehaviour
     {
         GameObject obj = collision.gameObject;
 
-        //if (obj.GetComponent<Defenders>())
-        //{
-        //    return;
-        //}
-
-        animator.SetBool("isAttack", true);
-        attackers.Attack(obj);
+        // Leave the method if not colliding with defender
+        if (!obj.GetComponent<Defenders>())
+        {
+            return;
+        }
+        else
+        {
+            animator.SetBool("isAttack", true);
+            attackers.Attack(obj);
+        }
     }
 }
