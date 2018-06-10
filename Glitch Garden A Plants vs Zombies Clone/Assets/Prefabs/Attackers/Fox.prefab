@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b39aa7f25620374eab82fa54e973d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helath: 50
+  health: 100
 --- !u!114 &114956328464958418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e24d78e3efc7774eaaed6e8ad2a7901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seenEverySeconds: 10
 --- !u!212 &212545559534371424
 SpriteRenderer:
   m_ObjectHideFlags: 1
