@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e24d78e3efc7774eaaed6e8ad2a7901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seenEverySeconds: 10
+  seenEverySeconds: 7
 --- !u!212 &212545559534371424
 SpriteRenderer:
   m_ObjectHideFlags: 1
