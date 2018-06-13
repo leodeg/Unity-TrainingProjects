@@ -6,17 +6,18 @@ public class DefenderSpawner : MonoBehaviour
 {
     public Camera myCamera;
 
-    private GameObject defenderParent;
+    private GameObject parent;
+    private StarDisplay starDisplay;
 
     // Use this for initialization
     void Start ()
     {
-        defenderParent = GameObject.Find("Defenders");
-
-        if (!defenderParent)
+        parent = GameObject.Find("Defenders");
+        if (!parent)
         {
-            defenderParent = new GameObject("Defenders");
+            parent = new GameObject("Defenders");
         }
+        starDisplay = GameObject.FindObjectOfType<StarDisplay>();        
 	}
 	
 	// Update is called once per frame
@@ -25,13 +26,46 @@ public class DefenderSpawner : MonoBehaviour
 		
 	}
 
-    private void OnMouseDown()
+    //private void OnMouseDown()
+    //{
+    //    Vector2 rawPosition = CalculateWordlPointOfMouseClick();
+    //    GameObject newDefender = Instantiate(Button.selectedDefender, 
+    //        SnapToGrid(rawPosition), Quaternion.identity) as GameObject;
+
+    //    int defenderCost = parent.GetComponent<Defenders>().starCost;
+
+    //    if (starDisplay.UseStars(defenderCost) == StarDisplay.Status.SUCCESS)
+    //    {
+    //        newDefender.transform.parent = parent.transform;
+    //    }   
+    //    else
+    //    {
+    //        Debug.Log("You don't have much money for spawn");
+    //    }
+    //}
+
+    void OnMouseDown()
     {
-        Vector2 rawPosition = CalculateWordlPointOfMouseClick();
+        Vector2 rawPos = CalculateWordlPointOfMouseClick();
+        Vector2 roundedPos = SnapToGrid(rawPos);
+        GameObject defender = Button.selectedDefender;
 
-        GameObject newDefender = Instantiate(Button.selectedDefender, SnapToGrid(rawPosition), Quaternion.identity) as GameObject;
+        int defenderCost = defender.GetComponent<Defenders>().starCost;
+        if (starDisplay.UseStars(defenderCost) == StarDisplay.Status.SUCCESS)
+        {
+            SpawnDefender(roundedPos, defender);
+        }
+        else
+        {
+            Debug.Log("Insufficient stars to spawn");
+        }
+    }
 
-        newDefender.transform.parent = defenderParent.transform;
+    void SpawnDefender(Vector2 roundedPos, GameObject defender)
+    {
+        Quaternion zeroRot = Quaternion.identity;
+        GameObject newDef = Instantiate(defender, roundedPos, zeroRot) as GameObject;
+        newDef.transform.parent = parent.transform;
     }
 
     Vector2 SnapToGrid(Vector2 rawWorldPosition)
