@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,11 +26,28 @@ public class GameTimer : MonoBehaviour
         
         if (Time.timeSinceLevelLoad >= levelSeconds && !isEndOfLevel)
         {
-            audioSource.Play();
-            Invoke("LoadNextLevel", audioSource.clip.length);
-            isEndOfLevel = true;
+            HandleWinCondition();
         }
-	}
+    }
+
+    private void HandleWinCondition()
+    {
+        DestroyAllTaggedObjects();
+        audioSource.Play();
+        Invoke("LoadNextLevel", audioSource.clip.length);
+        isEndOfLevel = true;
+    }
+
+    // Destroys all objects with destroOnWin tag
+    private void DestroyAllTaggedObjects()
+    {
+        GameObject[] taggedObjectArray = GameObject.FindGameObjectsWithTag("destroyOnWin");
+
+        foreach (GameObject taggedObject in taggedObjectArray)
+        {
+            Destroy(taggedObject);
+        }
+    }
 
     void LoadNextLevel()
     {
