@@ -1,4 +1,4 @@
-# Unity3D training projects
+# Unity simple training projects
 - [x] [Text Adventure](Text%20Adventure/)
 - [x] [Number Wizard UI](NumberWizardUI/)
 - [x] [Block Breaker](Block%20Breaker/)
